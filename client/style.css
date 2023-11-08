@@ -1,0 +1,108 @@
+* 
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .hero{
+    width: 20%;
+  }
+  #favoriteLists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between boxes */
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .favorite-list {
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px;
+    width: calc(33.333% - 20px); /* Three boxes per row, accounting for 10px gap on either side */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* subtle shadow for depth */
+    background-color: #fff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .favorite-list h3 {
+    margin-top: 0;
+    color: #333; /* Dark grey text for the title */
+    text-align: center;
+  }
+  
+  
+  /* Style individual list items */
+  .favorite-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* White background for items */
+    border: 1px solid #eaeaea; /* A very light border */
+    border-radius: 4px; /* Slightly rounded corners for items */
+  }
+  
+  /* Provide some spacing and visual separation for list item content */
+  .favorite-item-content {
+    margin-bottom: 5px; /* Space out content within an item */
+  }
+  
+  /* Style the remove button */
+  .remove-favorite-button {
+    padding: 5px 10px;
+    background-color: #ff6b6b; /* A reddish color for remove buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Change cursor to indicate clickable */
+  }
+  
+  /* Hover effect for remove button */
+  .remove-favorite-button:hover {
+    background-color: #ff5252; /* A slightly darker red for hover state */
+  }
+  
+  body {
+    background: #fcdc58;
+    text-align: center;
+  }
+  
+  
+  #wrapper {
+    position: relative;
+    margin-bottom: 10px;
+    height: 300px;
+  }
+
+  #app {
+    margin: 20px;
+  }
+  
+  input[type="text"] {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #favoriteLists {
+    margin-top: 20px;
+  }
+  
+ 
+  
+  
