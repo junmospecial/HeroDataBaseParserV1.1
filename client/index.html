@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Superhero Search and Favorite Lists</h1>
+      
+        <!-- Form for creating a new list -->
+        <div>
+            <input type="text" id="new-list-input" placeholder="Enter new list name" />
+            <button id="new-list-button">Create New List</button>
+        </div>
+
+        <!-- Form for adding hero to a list -->
+        <div>
+            <input type="text" id="list-name-input" placeholder="Enter list name to add to" />
+            <input type="text" id="hero-id-input" placeholder="Enter Hero ID to add" />
+            <button id="add-to-list-button">Add to List</button>
+        </div>
+
+        <!-- Form for deleting a list -->
+        <div>
+            <input type="text" id="delete-list-input" placeholder="Enter list name to delete" />
+            <button id="delete-list-button">Delete List</button>
+        </div>
+
+        <!-- Button to trigger displaying the favorite lists -->
+        <div>
+            <input type="text" id="get-list-input" placeholder="Enter list name to view" />
+            <button id="get-list-button">Get List Info</button>
+        </div>
+
+        <!-- Sorting options -->
+        <div class="sort-container">
+            <select id="sort-field">
+                <option value="name">Sort by Name</option>
+                <option value="Race">Sort by Race</option>
+                <option value="Publisher">Sort by Publisher</option>
+                <option value = "power"> Sort by Powers</option>
+            </select>
+            <button id="sort-button">Sort</button>
+        </div>
+
+        <!-- Section to display favorite lists -->
+
+        <!-- Container to display favorite lists' information -->
+        <div id="superheroInfoContainer"></div>
+
+        <!-- This can be dynamically filled with JavaScript -->
+        <div id="favoriteLists"></div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for superheroes...">
+            <select id="search-field">
+                <option value="name">Name</option>
+                <option value="Race">Race</option>
+                <option value="Publisher">Publisher</option>
+                <option value="powers">Powers</option>
+            </select>
+            <input type="number" id="n" name="quantity" min="0" step="1" placeholder = "# of Results">
+            <button id="search-button">Search</button>
+        </div>
+        <div id="results">
+            <!-- Results will be added here by JavaScript -->
+        </div>
+    </div>
+
+
+    <div id="wrapper">
+        <!-- Spiderman SVG/Image placeholder -->
+    </div>
+    <div id="wrapper">
+        <div id="spiderman">
+          <div class="head">
+            <div class="eye-left"></div>
+            <div class="eye-right"></div>
+          </div>
+          <div class="body">
+            <div class="spider"></div>
+            <div class="arm-left"></div>
+            <div class="arm-right"></div>
+          </div>
+          <div class="legs">
+            <div class="boot-left"></div>
+            <div class="boot-right"></div>
+          </div>
+        </div>
+      </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+  
