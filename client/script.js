@@ -188,7 +188,9 @@ function displaySuperheroes(superheroes) {
             .catch(error => {
                 console.error('Error deleting list:', error);
             });
+
         }
+        
 
       // Function to add a hero to a list
       function addHeroToList(listName, heroId) {

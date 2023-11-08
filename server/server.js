@@ -238,6 +238,7 @@ app.get('/api/favorite-lists/:listName/superheroes/info', (req, res) => {
   if (!superheroLists[listName]) {
     return res.status(404).json({ error: 'List does not exist' });
   }
+  
 
   // Read the superhero data file
   fs.readFile(filePath, 'utf8', (err, superheroesData) => {
