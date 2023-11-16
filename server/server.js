@@ -192,7 +192,8 @@ app.get('/api/search', (req, res) => {
       console.error('Error parsing JSON:', error);
       res.status(500).json({ error: 'Error parsing JSON' });
     }
-  });
+  }); 
+  
 });
 
 const superheroLists = {}; // This object will store lists of superhero IDs
