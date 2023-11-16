@@ -89,9 +89,7 @@ function displaySuperheroes(superheroes) {
         // Clear the search results container
         resultsContainer.innerHTML = '';
       sortResult = []
-        // Note: apiUrl should be declared at the top of your script with your server's base URL
-        const apiUrl = 'http://localhost:3000/api'; // Update this to your actual API's base URL
-        fetch(`${apiUrl}/favorite-lists/${encodeURIComponent(listName)}/superheroes/info`)
+        fetch(`/api/favorite-lists/${encodeURIComponent(listName)}/superheroes/info`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
