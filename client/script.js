@@ -86,6 +86,8 @@ function displaySuperheroes(superheroes) {
     
       // Function to get and display the list information
     function getListInfo(listName) {
+        // Clear the search results container
+        resultsContainer.innerHTML = '';
       sortResult = []
         // Note: apiUrl should be declared at the top of your script with your server's base URL
         const apiUrl = 'http://localhost:3000/api'; // Update this to your actual API's base URL

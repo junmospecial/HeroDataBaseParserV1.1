@@ -3,6 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { param, body, validationResult } = require('express-validator');
 
 const app = express();
 app.use(cors());
@@ -21,7 +22,14 @@ const superheroPowers = JSON.parse(fs.readFileSync(powersFilePath, 'utf8'));
 
 
 // Get superhero info by ID
-app.get('/api/superheroes/:id', (req, res) => {
+app.get('/api/superheroes/:id', [
+  param('id').isInt().withMessage('ID must be an integer')
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const { id } = req.params;
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) return res.status(500).json({ error: 'Internal Server Error' });
@@ -33,7 +41,14 @@ app.get('/api/superheroes/:id', (req, res) => {
 });
 
 // Get powers for a given superhero ID
-app.get("/api/superheroes/:id/powers", (req, res) => {
+app.get("/api/superheroes/:id/powers", [
+  param('id').isInt().withMessage('ID must be an integer')
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const superheroId = req.params.id;
 
   fs.readFile(filePath, "utf8", (err, superheroesData) => {
@@ -185,9 +200,15 @@ const superheroLists = {}; // This object will store lists of superhero IDs
 // Create a new list with a given name
 
 // Define the POST route to create a new superhero list
-app.post('/api/favorite-lists', function (req, res) {
-  const listName = req.body.listName;
+app.post('/api/favorite-lists', [
+  body('listName').trim().escape().notEmpty().withMessage('List name is required.')
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
+  const listName = req.body.listName;
   if (!listName || superheroLists[listName]) {
     res.status(400).send('Invalid list name or list name already exists.');
     return;
@@ -198,7 +219,15 @@ app.post('/api/favorite-lists', function (req, res) {
 });
 
 // Update an existing list with a given name using a PUT request
-app.put('/api/favorite-lists/:listName', function (req, res) {
+app.put('/api/favorite-lists/:listName', [
+  param('listName').trim().escape().notEmpty().withMessage('List name is required.'),
+  body('superheroIds.*').isInt().withMessage('Each superhero ID must be an integer')
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const listName = req.params.listName;
   const superheroIds = req.body.superheroIds;
 
